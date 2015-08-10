@@ -1,0 +1,41 @@
+import time
+import os
+
+ore = 0
+minuti = 0
+secondi = 0 
+scelta = 0
+while scelta != 4 :
+    print("Benvenuto nel timer by hack0019")
+    print("I dati attuali sono:\nOre: ", ore,", minuti: ", minuti, ", secondi: ", secondi)
+    print("\nCosa vuoi modificare?")
+    scelta = eval(input("\n1)Ore\n2)Minuti\n3)Secondi\n4)Nulla\nRisposta: "))
+    while scelta > 4 or scelta < 1 :
+        scelta = eval(input("Scelta non valda, reinserire:"))
+    if scelta == 1 : 
+        ore = eval(input("Inserisci le ore: "))
+        os.system('clear')
+    if scelta == 2 : 
+        minuti = eval(input("Inserisci i minuti: "))
+        os.system('clear')
+    if scelta == 3 : 
+        secondi = eval(input("Inserisci i secondi: "))
+        os.system('clear')
+
+#inizio algoritmo timer
+
+while ore >= 0 and minuti >= 0 and secondi >= 0 :
+    os.system('clear') 
+    print("Mancano ", ore, "ore, ", minuti, "minuti e ", secondi, "secondi")
+    if minuti == 0 and ore > 0 and secondi == 0:
+        minuti = 59
+        secondi = 59
+        ore = ore - 1
+    if ore == 0 and secondi == 0 and minuti > 0 :
+        minuti = minuti - 1
+        secondi = 59 
+    secondi = secondi - 1 
+    time.sleep(1)
+
+
+os.system("vlc allarme.mp3")
