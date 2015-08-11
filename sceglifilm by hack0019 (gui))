@@ -1,0 +1,17 @@
+from os import listdir
+from os import system
+from os.path import isfile, join
+import random
+from tkinter import *
+root = Tk()
+def bott():
+    lista = [ f for f in listdir('.') if isfile(join('.',f)) ]
+    num = random.randrange(len(lista))
+    while lista[num] == "lds.py":
+         num = random.randrange(len(lista))
+    a = 'vlc "'  + lista[num] + '"'
+    system(a)
+
+bottone = Button(root, text = "Guarda!", command = bott)
+bottone.pack()
+root.mainloop()
