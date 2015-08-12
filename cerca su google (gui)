@@ -1,0 +1,18 @@
+from tkinter import *
+import os
+#https://www.google.it/#q=
+root = Tk()
+root.title("Cerca su Google")
+def Get():
+    #testo.get()
+    text = 'firefox "https://www.google.it/#q=' +  testo.get() + '"'
+    print(text)
+    os.system(text)
+testo = StringVar(value = "")
+trova = Entry(root, textvariable = testo)
+get = Button(root, text = "Cerca", command = Get)
+label1 = Label(root, text = "Inserisci qui la stringa da cercare")
+trova.grid(row = 1, columnspan = 3)
+label1.grid(row = 0, column = 1)
+get.grid(row = 2, column = 1)
+root.mainloop()
